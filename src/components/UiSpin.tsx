@@ -3,10 +3,10 @@ interface Props {
   size?: number;
 }
 
-export const UiSpin = ({ borderColor = "red-500", size = 4 }: Props) => {
+export const UiSpin = ({ borderColor = "red-500" }: Props) => {
   return (
     <div
-      className={`w-${size} h-${size} border-2 border-t-2 border-${borderColor} rounded-full animate-spin`}
+      className={`w-4 h-4 border-2 border-t-2 border-${borderColor} rounded-full animate-spin`}
     />
   );
 };
