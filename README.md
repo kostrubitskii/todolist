@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Проект Todo List
 
-## Getting Started
+Це проект Todo List, написаний на **Next.js**, **TypeScript**, з використанням **Tailwind CSS** для стилізації. Проект дозволяє додавати, видаляти та оновлювати задачі з можливістю позначати їх як виконані.
 
-First, run the development server:
+## Технології
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Next.js** — фреймворк для React з підтримкою серверного рендерингу.
+- **TypeScript** — мова програмування, що допомагає покращити якість коду.
+- **Tailwind CSS** — утилітарний CSS-фреймворк для створення адаптивних інтерфейсів.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Установка
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Склонуйте репозиторій:
+   ```bash
+   git clone https://github.com/ваш-репозиторій/todo-list.git
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Перейдіть в директорію проекту:
+   ```bash
+   cd todo-list
+   ```
 
-## Learn More
+3. Встановіть залежності:
+   ```bash
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. Запустіть проект в режимі розробки:
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. Відкрийте браузер і перейдіть за адресою:
+   ```
+   http://localhost:3000
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Структура проекту
 
-## Deploy on Vercel
+- **components/** — компоненти, такі як Todo List і елементи задач.
+- **api/** — API-методи для додавання та видалення задач.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Як використовувати
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Додайте нову задачу в поле вводу і натисніть "Add".
+- Клікайте на задачу, щоб позначити її як виконану.
+- Використовуйте кнопку "Delete" для видалення задачі.
