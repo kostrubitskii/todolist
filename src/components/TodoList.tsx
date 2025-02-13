@@ -1,12 +1,19 @@
-import { TodoListProps } from "@/types/TodoType";
+import { TodoType } from "@/types/TodoType";
 import { TodoItem } from "./TodoItem";
+
+interface Props {
+  todos: TodoType[];
+  loadingDelete: number | null;
+  onDelete: (id: number) => void;
+  onToggle: (id: number) => void;
+}
 
 export const TodoList = ({
   todos,
-  onDelete,
   loadingDelete,
+  onDelete,
   onToggle,
-}: TodoListProps) => {
+}: Props) => {
   return (
     <ul className="mt-4 space-y-4 sm:space-y-2">
       {todos.map((todo, index) => (

@@ -1,8 +1,8 @@
 import { getTodos } from "@/api/api";
-import { Todo } from "../components/Todo";
+import { HomePage } from "../pages/HomePage";
 import { TodoType } from "@/types/TodoType";
 
 export default async function Home() {
-  const getTodo: TodoType[] = await getTodos();
-  return <Todo todos={getTodo} />;
+  const todos: TodoType[] = await getTodos();
+  return <HomePage todos={todos} />;
 }

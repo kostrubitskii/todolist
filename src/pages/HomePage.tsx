@@ -1,15 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { TodoList } from "./TodoList";
+import { TodoList } from "../components/TodoList";
 import { addTodo, deleteTodo } from "@/api/api";
 import { TodoType } from "@/types/TodoType";
+import { UiSpin } from "@/components/UiSpin";
 
-interface TodoProps {
+interface Props {
   todos: TodoType[];
 }
 
-export const Todo = ({ todos }: TodoProps) => {
+export const HomePage = ({ todos }: Props) => {
   const [newTodo, setNewTodo] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [loadingDelete, setLoadingDelete] = useState<number | null>(null);
@@ -17,6 +18,7 @@ export const Todo = ({ todos }: TodoProps) => {
 
   const handleAddTodo = async (e: React.FormEvent) => {
     e.preventDefault();
+
     if (!newTodo.trim()) {
       return;
     }
@@ -26,6 +28,7 @@ export const Todo = ({ todos }: TodoProps) => {
       title: newTodo,
       completed: false,
     };
+
     setTodoList((prevTodos) => [...prevTodos, optimisticTodo]);
     setNewTodo("");
     setLoading(true);
@@ -41,6 +44,7 @@ export const Todo = ({ todos }: TodoProps) => {
       setTodoList((prevTodos) =>
         prevTodos.filter((todo) => todo.id !== optimisticTodo.id)
       );
+
       alert("An error occurred while adding a todo");
       console.log(error);
     } finally {
@@ -57,8 +61,9 @@ export const Todo = ({ todos }: TodoProps) => {
     } catch (error) {
       setTodoList((prevTodos) => [
         ...prevTodos,
-        todoList.find((todo) => todo.id === id)!,
+        ...todoList.filter((todo) => todo.id === id),
       ]);
+
       alert("An error occurred while deleting a todo");
       console.log(error);
     } finally {
@@ -82,20 +87,16 @@ export const Todo = ({ todos }: TodoProps) => {
         <input
           type="text"
           placeholder="Enter todo..."
-          className="border p-2 flex-grow focus:border-gray-500 focus:outline-none"
+          className="border p-2 flex-grow focus:border-gray-500 focus:outline-none rounded-md"
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
         />
         <button
           type="submit"
-          className="flex items-center justify-center bg-blue-500 text-white px-4 py-2 w-28 hover:bg-blue-600 transition-colors duration-200"
+          className="flex items-center justify-center bg-blue-500 text-white px-4 py-2 w-28 rounded-md hover:bg-blue-600 transition-colors duration-200"
           disabled={loading}
         >
-          {loading ? (
-            <div className="w-4 h-4 border-2 border-t-2 border-blue-500 rounded-full animate-spin"></div>
-          ) : (
-            "Add"
-          )}
+          {loading ? <UiSpin borderColor="blue-500" /> : "Add"}
         </button>
       </form>
 
