@@ -10,11 +10,11 @@ interface Props {
   todos: TodoType[];
 }
 
-export const HomePage = ({ todos }: Props) => {
-  const [newTodo, setNewTodo] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(false);
+const HomePage = ({ todos }: Props) => {
+  const [newTodo, setNewTodo] = useState("");
+  const [loading, setLoading] = useState(false);
   const [loadingDelete, setLoadingDelete] = useState<number | null>(null);
-  const [todoList, setTodoList] = useState<TodoType[]>(todos);
+  const [todoList, setTodoList] = useState<TodoType[]>(todos || []);
 
   const handleAddTodo = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -109,3 +109,5 @@ export const HomePage = ({ todos }: Props) => {
     </div>
   );
 };
+
+export default HomePage;
